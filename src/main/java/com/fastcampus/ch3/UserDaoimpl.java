@@ -1,7 +1,6 @@
 package com.fastcampus.ch3;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -13,7 +12,7 @@ import java.util.Date;
 
 //@Component - @Controller, @Repository, @Service, @ControllerAdvice
 @Repository
-public class UserDaoImpl implements UserDao {
+public class UserDaoimpl implements UserDao {
     @Autowired
     DataSource ds;
 
