@@ -20,7 +20,7 @@ public class AopMain {
 }
 
 class MyAdvice {
-    Pattern p = Pattern.compile("a.*");
+    Pattern p = Pattern.compile("a.*"); //a로 시작하는 단어
 
     boolean matches(Method m){
         Matcher matcher = p.matcher(m.getName());
@@ -28,7 +28,7 @@ class MyAdvice {
     }
 
     void invoke(Method m, Object obj, Object... args) throws Exception {
-        if(m.getAnnotation(Transactional.class)!=null)
+        if(m.getAnnotation(Transactional.class)!=null) // Transactional 애너테이션 붙은 메소드를 읽어와서 그게 null이 아니면 실행
             System.out.println("[before]{");
 
         m.invoke(obj, args); // aaa(), aaa2(), bbb() 호출가능
@@ -39,7 +39,7 @@ class MyAdvice {
 }
 
 class MyClass {
-    @Transactional
+    @Transactional // 이애너테이션 붙은것만 before after 가 같이 출력할 수 있게
     void aaa() {
         System.out.println("aaa() is called.");
     }
